@@ -5,7 +5,7 @@ import urllib.request
 
 T = TypeVar('T')
 
-Solution = Callable[[List[str]], T]
+Solution = Callable[[Sequence[str]], T]
 
 class Level(NamedTuple):
     year: int

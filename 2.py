@@ -5,10 +5,10 @@ class Cmd(NamedTuple):
     data: int
 
 
-def parse(lines: List[str]) -> List[Cmd]:
+def parse(lines: Sequence[str]) -> Sequence[Cmd]:
     return [Cmd(cmd=line.split(" ")[0], data=int(line.split(" ")[1])) for line in lines if len(line.split(" ")) >= 2]
 
-def scores(data: List[Cmd]):
+def scores(data: Sequence[Cmd]):
     x = 0
     y = 0
     aim = 0
@@ -27,7 +27,7 @@ def scores(data: List[Cmd]):
 
     return [x, y]
 
-def solution(data: List[str]) -> int:
+def solution(data: Sequence[str]) -> int:
     s = scores(parse(data))
     return s[0] * s[1]
 

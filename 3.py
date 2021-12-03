@@ -16,14 +16,14 @@ test_inp = """00100
 01010"""
 
 # returns [most common, least common]
-def stats(data: List[str]):
+def stats(data: Sequence[str]):
     n_1s = len([0 for c in data if c == "1"])
     n_0s = len([0 for c in data if c == "0"])
     if n_1s > n_0s: return [1, 0]
     if n_1s < n_0s: return [0, 1]
     return [1, 0]
 
-def sol(inp: List[str]):
+def sol(inp: Sequence[str]):
     gamma_bits = [0] * len(inp[0])
     ep_bits = [0] * len(inp[0])
 
@@ -38,7 +38,7 @@ def sol(inp: List[str]):
 
 aoc.debug(sol, level, (test_inp, 198))
 
-def rating(inp: List[str], type_: int) -> str:
+def rating(inp: Sequence[str], type_: int) -> str:
     lines = list(inp)
 
     for i in range(len(inp[0])):
@@ -53,7 +53,7 @@ def rating(inp: List[str], type_: int) -> str:
 
     raise Exception("???")
     
-def sol2(inp: List[str]):
+def sol2(inp: Sequence[str]):
     o = int(rating(inp, 0), base=2)
     c = int(rating(inp, 1), base=2)
     print(c, o)
